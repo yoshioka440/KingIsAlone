@@ -17,8 +17,8 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	List<EnemyInfo> ImportMtbEnemys () {
+		/*
 		Entity_SpawnEnemy entityEnemy = Resources.Load("Data/mtb_enemy_spawn_rate") as Entity_SpawnEnemy;
-		List<EnemyInfo> enemies = new List<EnemyInfo>();
 
 		var sheet = entityEnemy.sheets[0];
 		for(int i = 0; i < sheet.list.Count; i++) {
@@ -29,5 +29,36 @@ public class EnemySpawner : MonoBehaviour {
 		}
 
 		return enemies;
+		 */
+
+		List<EnemyInfo> enemies = new List<EnemyInfo>();
+
+		TextAsset mtbCsv = Resources.Load<TextAsset>("Data/mtb_enemy_spawn_rate");
+		string[] lines = mtbCsv.text.Replace("\r\n", "\n").Split("\n"[0]);
+
+		for(int i = 1; i<lines.Length; i++) {
+			string line = lines[i];
+			if(line == "") continue;
+			string[] elements = line.Split(","[0]);
+
+			if(elements[0] == "") continue;
+
+			bool registFlag = true;
+			registFlag = (elements[0] == "FALSE") ? false : true;
+			if(!registFlag) continue;
+
+			int id = int.Parse(elements[1]);
+			string kind = (string)elements[2];
+			int row = int.Parse(elements[3]);
+			float spawnTime = float.Parse(elements[4]);
+			int HP = int.Parse(elements[5]);
+			float speed = float.Parse(elements[6]);
+
+			EnemyInfo info = new EnemyInfo(id, kind, row, spawnTime, HP, speed);
+			enemies.Add(info);
+			Debug.Log("ID:" + info.ID + ",Line:" + info.Line + ",Spawn:" + info.SpawnTime);
+		}
+
+		return new List<EnemyInfo>();
 	}
 }
