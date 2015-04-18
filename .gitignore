@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-Library/
-Temp/
-=======
 # =============== #
 # Unity generated #
 # =============== #
@@ -17,7 +13,6 @@ ExportedObj/
 *.svd
 *.userprefs
 *.csproj
->>>>>>> origin/master
 *.pidb
 *.suo
 *.sln
