@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		hitPoint = 100;
-		travelling = Vector3.right;
+		travelling = Vector3.left;
 	}
 	
 	// Update is called once per frame
