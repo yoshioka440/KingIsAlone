@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour {
 		yield return s;
 	}
 
-	GameObject LoadPrefab (string key) {
+	public GameObject LoadPrefab (string key) {
 		if(prefabs.ContainsKey(key)) return prefabs[key];
 
 		prefabs.Add(key, Resources.Load<GameObject>(resourcePaths[key]));
