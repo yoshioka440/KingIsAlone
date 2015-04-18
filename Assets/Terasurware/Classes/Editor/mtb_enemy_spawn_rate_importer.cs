@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.IO;
 using UnityEditor;
@@ -45,7 +45,6 @@ public class mtb_enemy_spawn_rate_importer : AssetPostprocessor {
 						Entity_SpawnEnemy.Param p = new Entity_SpawnEnemy.Param ();
 						
 					cell = row.GetCell(0); p.enable = (cell == null ? false : cell.BooleanCellValue);
-					if(!p.enable) continue;
 					cell = row.GetCell(1); p.id = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(2); p.kind = (cell == null ? "" : cell.StringCellValue);
 					cell = row.GetCell(3); p.line = (int)(cell == null ? 0 : cell.NumericCellValue);
