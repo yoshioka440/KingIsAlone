@@ -37,7 +37,7 @@ public class Shooter : MonoBehaviour {
 
 		vec = keisuu * tame_time * vec;
 
-		bullet.rigidbody.AddForce (vec);
+		bullet.GetComponent<Rigidbody>().AddForce (vec);
 	}
 
 	//クリックされた座標から正規化した方向ベクトルを返す
