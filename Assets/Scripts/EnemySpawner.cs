@@ -4,16 +4,55 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour {
 
-	List<EnemyInfo> enemiesInfo = new List<EnemyInfo>();
+	List<EnemyInfo> enemiesInfo = null;
+	EnemyInfo next;
+	float startTime = 0;
+
+	[SerializeField]
+	Vector3 spawnPoint;
+	[SerializeField]
+	GameObject resourceManager;
+
+	void Awake () {
+	}
 
 	// Use this for initialization
 	void Start () {
-		ImportMtbEnemys();
+		startTime = Time.time;
+		ResourceManager mgr = resourceManager.GetComponent<ResourceManager>();
+		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy", true);
+		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy", true);
+		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy", true);
+		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy", true);
+		enemiesInfo = ImportMtbEnemys();
+		StartCoroutine(mgr.LoadPrefabs());
+		StartCoroutine(SpawnEnemies());
 	}
 
 	// Update is called once per frame
 	void Update () {
 
+	}
+
+	IEnumerator SpawnEnemies () {
+		for(int i = 0; i < enemiesInfo.Count; i++) {
+			next = enemiesInfo[i];
+			float t = Time.time;
+			if(next.SpawnTime > t) {
+				yield return new WaitForSeconds(next.SpawnTime - t);
+				InstantiateEnemy(next);
+			}
+		}
+	}
+
+	GameObject InstantiateEnemy (EnemyInfo info) {
+		float zPos = -3f + info.Line * 3f;
+		Vector3 pos = new Vector3(spawnPoint.x, spawnPoint.y, zPos);
+		ResourceManager resource = resourceManager.GetComponent<ResourceManager>();
+		GameObject enemyObj = Instantiate(resource.GetPrefab(info.Kind), pos, Quaternion.identity) as GameObject;
+		Enemy enemy = enemyObj.GetComponent<Enemy>();
+		enemy.Init(info.HP, info.Speed);
+		return enemyObj;
 	}
 
 	List<EnemyInfo> ImportMtbEnemys () {
@@ -59,6 +98,6 @@ public class EnemySpawner : MonoBehaviour {
 			Debug.Log("ID:" + info.ID + ",Line:" + info.Line + ",Spawn:" + info.SpawnTime);
 		}
 
-		return new List<EnemyInfo>();
+		return enemies;
 	}
 }
