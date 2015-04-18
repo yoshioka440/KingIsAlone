@@ -14,24 +14,25 @@ public class EnemySpawner : MonoBehaviour {
 	GameObject resourceManager;
 
 	void Awake () {
-	}
-
-	// Use this for initialization
-	void Start () {
-		startTime = Time.time;
 		ResourceManager mgr = resourceManager.GetComponent<ResourceManager>();
 		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy", true);
 		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy", true);
 		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy", true);
 		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy", true);
+	}
+
+	// Use this for initialization
+	void Start () {
 		enemiesInfo = ImportMtbEnemys();
-		StartCoroutine(mgr.LoadPrefabs());
+	}
+
+	public void StartSpawn () {
+		Init();
 		StartCoroutine(SpawnEnemies());
 	}
 
-	// Update is called once per frame
-	void Update () {
-
+	void Init () {
+		startTime = Time.time;
 	}
 
 	IEnumerator SpawnEnemies () {
