@@ -10,6 +10,7 @@ public class ProgressBar : MonoBehaviour {
 	public float endTime = 180.0f;
 	private bool isEnd;
 
+
 	// Use this for initialization
 	void Start () {
 
