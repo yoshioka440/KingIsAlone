@@ -2,17 +2,22 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * プログレスバークラス
+ * プログレスバーの管理を置こなう。時間の管理は自前
+ **/
 public class ProgressBar : MonoBehaviour {
-
 
 	private float startingProgress = 0;
 	private float currentProgress;
 	public float endTime = 180.0f;
-	private bool isEnd;
-
+	private bool isEnd = false;
+	public bool IsEnd { get{ return isEnd; } }
 
 	// Use this for initialization
 	void Start () {
+		
+		isEnd = false;
 
 		currentProgress = startingProgress;
 	}

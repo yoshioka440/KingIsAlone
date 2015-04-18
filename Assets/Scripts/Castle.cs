@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Castle : MonoBehaviour {
 
-	public int hitPoint;
+	public int hitPoint = 100;
 
 	public int HP { get { return hitPoint; } }
 
@@ -22,7 +22,11 @@ public class Castle : MonoBehaviour {
 		hitPoint--;
 	}
 
-	public bool IsBroken () {
-		return (hitPoint <= 0) ? true : false;
+//	public bool IsBroken () {
+//		return (hitPoint <= 0) ? true : false;
+//	}
+//
+	public bool IsBroken {
+		get { return (hitPoint <= 0) ? true : false; }
 	}
 }
