@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject castle;
 	//[SerializeField]
 	public GameObject progressBar;
+	public GameObject enemySpawner;
 
 	/**
 	 * （時間初期化（ProgressBar初期化））
@@ -18,10 +19,14 @@ public class GameManager : MonoBehaviour {
 	 * （城の体力初期化）
 	 * 生活用品（弾倉）初期化
 	 * 敵の初期化
-	 * プレイヤー初期化
+	 * （プレイヤー初期化）
 	 **/
 	void Awake () {
 
+		// 生活用品（弾倉）初期化
+
+		// EnemySpawnerの取得
+//		enemySpawner = enemySpawner.GetComponent<EnemySpawner> ();
 
 		// 終了条件、クリア条件の受け渡し
 		gameover = castle.GetComponent<Castle> ().IsBroken;
@@ -34,9 +39,14 @@ public class GameManager : MonoBehaviour {
 	 * 時間スタート 
 	 **/
 	// Use this for initialization
-//	void Start () {
-//	
-//	}
+	void Start () {
+
+		// EnemySpawnerの初期化
+//		enemySpawner.StartSpawn();
+
+		// ResourceManagerの初期化
+		GetComponent<ResourceManager>().LoadPrefabs();
+	}
 
 	/**
 	 * 敵の進行が終了、進行時間がMax
