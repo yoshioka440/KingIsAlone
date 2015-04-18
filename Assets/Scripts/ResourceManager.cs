@@ -4,21 +4,17 @@ using System.Collections.Generic;
 
 public class ResourceManager : MonoBehaviour {
 
-	Dictionary<string, GameObject> prefabs;
-	Dictionary<string, string> resourcePaths;
+	Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
+	Dictionary<string, string> resourcePaths = new Dictionary<string, string>();
 
-	List<string> prefabKeys;
-	List<string> reuseKeys;
+	List<string> prefabKeys = new List<string>();
+	List<string> reuseKeys = new List<string>();
 
 	static bool created = false;
 
 	protected void Awake () {
 		if(!created) {
 			DontDestroyOnLoad(this.gameObject);
-			prefabKeys = new List<string>();
-			reuseKeys = new List<string>();
-			prefabs = new Dictionary<string, GameObject>();
-			resourcePaths = new Dictionary<string, string>();
 			created = true;
 			return;
 		}
