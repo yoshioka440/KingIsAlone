@@ -5,6 +5,8 @@ public class Castle : MonoBehaviour {
 
 	public int hitPoint;
 
+	public int HP { get { return hitPoint; } }
+
 	// Use this for initialization
 	void Start () {
 		hitPoint = 100;
@@ -18,5 +20,9 @@ public class Castle : MonoBehaviour {
 	void OnCollisionEnter (Collision col) {
 		Debug.Log(col.gameObject);
 		hitPoint--;
+	}
+
+	public bool IsBroken () {
+		return (hitPoint <= 0) ? true : false;
 	}
 }
