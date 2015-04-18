@@ -47,9 +47,10 @@ public class mtb_enemy_spawn_rate_importer : AssetPostprocessor {
 					cell = row.GetCell(0); p.enable = (cell == null ? false : cell.BooleanCellValue);
 					if(!p.enable) continue;
 					cell = row.GetCell(1); p.id = (int)(cell == null ? 0 : cell.NumericCellValue);
-					cell = row.GetCell(2); p.spawn_time = (float)(cell == null ? 0 : cell.NumericCellValue);
-					cell = row.GetCell(3); p.hit_point = (int)(cell == null ? 0 : cell.NumericCellValue);
-					cell = row.GetCell(4); p.speed = (float)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(2); p.type = (cell == null ? "" : cell.StringCellValue);
+					cell = row.GetCell(3); p.spawn_time = (float)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(4); p.hit_point = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(5); p.speed = (float)(cell == null ? 0 : cell.NumericCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

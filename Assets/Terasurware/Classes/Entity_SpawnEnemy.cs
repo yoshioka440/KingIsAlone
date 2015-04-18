@@ -19,6 +19,7 @@ public class Entity_SpawnEnemy : ScriptableObject
 		
 		public bool enable;
 		public int id;
+		public string type;
 		public float spawn_time;
 		public int hit_point;
 		public float speed;
