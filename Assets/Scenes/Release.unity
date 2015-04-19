@@ -178,6 +178,10 @@ Prefab:
       propertyPath: shooter_num
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
+      propertyPath: shoot_wait_time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
@@ -445,6 +449,10 @@ Prefab:
       propertyPath: shooter_num
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
+      propertyPath: shoot_wait_time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
@@ -594,6 +602,10 @@ Prefab:
       propertyPath: rsmgr
       value: 
       objectReference: {fileID: 2091436901}
+    - target: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
+      propertyPath: shoot_wait_time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_IsPrefabParent: 0
@@ -913,6 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: 100
+  damage_wait_time: 1
 --- !u!1 &1920606640
 GameObject:
   m_ObjectHideFlags: 0
