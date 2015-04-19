@@ -18,10 +18,10 @@ public class Shooter : MonoBehaviour {
 		main_camera = Camera.main;
 	}
 
-//	void Update(){
-//		if(Input.GetKeyDown(KeyCode.Space))
-//			Shoot(2,new Vector2(10,0));
-//	}
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.Space))
+			Shoot(2,new Vector2(10,0));
+	}
 
 	//tame_time:ため時間
 	//screen_vec:クリック座標
@@ -55,5 +55,9 @@ public class Shooter : MonoBehaviour {
 
 	public Vector3 GetPlayerPosition(){
 		return playerpos.transform.position;
+	}
+
+	public int GetShooterNumber(){
+		return shooter_num;
 	}
 }
