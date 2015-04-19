@@ -12,6 +12,8 @@ public class Shooter : MonoBehaviour {
 	[SerializeField]float keisuu;
 	[SerializeField]ResourceManager rsmgr;
 	[SerializeField]GameObject playerpos;
+	float now_waiting_time;
+	[SerializeField]float shoot_wait_time;
 
 	// Use this for initialization
 	void Start () {
@@ -19,25 +21,27 @@ public class Shooter : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Space))
-			Shoot(2,new Vector2(10,0));
+		now_waiting_time += Time.deltaTime;
 	}
 
 	//tame_time:ため時間
 	//screen_vec:クリック座標
 	public void Shoot(float tame_time,Vector2 screen_vec){
-		Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z-main_camera.gameObject.transform.position.z);
+		if(now_waiting_time >= shoot_wait_time){
+			Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z-main_camera.gameObject.transform.position.z);
 
-		bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
-		Debug.Log (magazine.NowBullet (shooter_num).ToString ());
-		GameObject bullet = Instantiate (bullet_prefab,
-			                    gameObject.transform.position,
-								bullet_prefab.transform.rotation) as GameObject;
+			bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
+			Debug.Log (magazine.NowBullet (shooter_num).ToString ());
+			GameObject bullet = Instantiate (bullet_prefab,
+				                    gameObject.transform.position,
+									bullet_prefab.transform.rotation) as GameObject;
 
-		vec = keisuu * tame_time * vec;
+			vec = keisuu * tame_time * vec;
 
-		bullet.GetComponent<Rigidbody>().AddForce (vec);
-		magazine.Next (shooter_num);
+			bullet.GetComponent<Rigidbody>().AddForce (vec);
+			magazine.Next (shooter_num);
+			now_waiting_time = 0;
+		}
 	}
 
 	//クリックされた座標から正規化した方向ベクトルを返す
