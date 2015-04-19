@@ -6,20 +6,20 @@ public class Shooter : MonoBehaviour {
 
 	//アタッチしているGameObjectの大砲ナンバー:0~2
 	[SerializeField]int shooter_num;
-	Magaizine magazine;
+	[SerializeField]Magaizine magazine;
 	Camera main_camera;
 	GameObject bullet_prefab;
 	[SerializeField]float keisuu;
+	[SerializeField]ResourceManager rsmgr;
 
 	// Use this for initialization
 	void Start () {
-		main_camera = Camera.current;
+		main_camera = Camera.main;
 	}
 
-
-	//上位存在によってMagazineインスタンスをセットしてもらう
-	public void SetMagazine(Magaizine m_instance){
-		magazine = m_instance;
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.Space))
+			Shoot(2,new Vector2(10,0));
 	}
 
 	//tame_time:ため時間
@@ -27,10 +27,8 @@ public class Shooter : MonoBehaviour {
 	public void Shoot(float tame_time,Vector2 screen_vec){
 		Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z);
 
-		/*
-		 * bullet_prefabを取得する処理
-		bullet_prefab = 
-		*/
+		bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
+		Debug.Log (magazine.NowBullet (shooter_num).ToString ());
 		GameObject bullet = Instantiate (bullet_prefab,
 			                    gameObject.transform.position,
 								bullet_prefab.transform.rotation) as GameObject;
@@ -38,10 +36,12 @@ public class Shooter : MonoBehaviour {
 		vec = keisuu * tame_time * vec;
 
 		bullet.GetComponent<Rigidbody>().AddForce (vec);
+		magazine.Next (shooter_num);
 	}
 
 	//クリックされた座標から正規化した方向ベクトルを返す
 	Vector3 Calcu_vec(Vector2 screen_vec,float z){
+		Debug.Log (main_camera);
 		Vector3 v = main_camera.ScreenToWorldPoint (screen_vec);
 		v.z = z;
 
