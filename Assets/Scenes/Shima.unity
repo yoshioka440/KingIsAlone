@@ -201,6 +201,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &714436721
+GameObject:
+  m_PrefabParentObject: {fileID: 135012, guid: 54f1ebc1709026243aeac6a44e5dd9ea, type: 2}
+  m_PrefabInternal: {fileID: 1200304180}
+--- !u!114 &714436726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714436721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f737891f4b510314e94d69e1416db694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: 100
 --- !u!1 &755346459
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +328,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1627486886}
   - 114: {fileID: 1627486885}
+  - 114: {fileID: 1627486887}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -342,6 +359,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1627486887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627486884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0351291a59b41eeae2db6c3bca958b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castle: {fileID: 714436721}
+  progressBar: {fileID: 0}
+  enemySpawner: {fileID: 482259183}
 --- !u!1 &1656155696
 GameObject:
   m_ObjectHideFlags: 0

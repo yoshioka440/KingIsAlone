@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour {
 		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy", true);
 		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy", true);
 		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy", true);
+		mgr.AddPrefab("ENEMY4", "Prefabs/Enemy", true);
 	}
 
 	IEnumerator SpawnEnemies () {
