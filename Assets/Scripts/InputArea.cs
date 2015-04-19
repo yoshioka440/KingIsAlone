@@ -45,5 +45,6 @@ public class InputArea : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 		float t = Time.time - dragBeginTime;
 		Vector3 pos = ped.position;
 		Debug.Log("Time:" + t + ",Pos:" + pos);
+		player.SelectedShooter.Shoot(t, pos);
 	}
 }
