@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 458798}
   - 33: {fileID: 3316966}
-  - 136: {fileID: 13649504}
   - 23: {fileID: 2384038}
   m_Layer: 0
   m_Name: Canon
@@ -68,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -4.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -20, y: 8.25, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 411258}
   - {fileID: 471698}
@@ -134,19 +133,6 @@ MonoBehaviour:
   keisuu: 2000
   rsmgr: {fileID: 0}
   playerpos: {fileID: 192442}
---- !u!136 &13649504
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143052}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
