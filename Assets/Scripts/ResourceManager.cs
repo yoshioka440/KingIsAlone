@@ -14,7 +14,7 @@ public class ResourceManager : MonoBehaviour {
 
 	protected void Awake () {
 		if(!created) {
-			DontDestroyOnLoad(this.gameObject);
+			//DontDestroyOnLoad(this.gameObject);
 			created = true;
 			return;
 		}
