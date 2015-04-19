@@ -101,9 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c961efb96b3ce948ad4cd816a48301b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack_power: 0
-  block_power: 0
+  attack_power: 5
+  block_power: 10
   is_ground: 0
+  destroy_wait_time: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
