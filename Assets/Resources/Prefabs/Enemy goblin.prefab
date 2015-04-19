@@ -1739,9 +1739,10 @@ GameObject:
   - 111: {fileID: 11194134}
   - 136: {fileID: 13641388}
   - 114: {fileID: 11432848}
+  - 54: {fileID: 5418500}
   m_Layer: 0
   m_Name: Enemy goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7899,7 +7900,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 185320}
-  m_LocalRotation: {x: .661381781, y: -.321860969, z: .366089463, w: .570051014}
+  m_LocalRotation: {x: .661381841, y: -.321860999, z: .366089493, w: .570051074}
   m_LocalPosition: {x: -.266631752, y: -.00868497789, z: -.0449426919}
   m_LocalScale: {x: .999999881, y: 1.00000012, z: 1.00000012}
   m_Children: []
@@ -8640,7 +8641,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146662}
-  m_LocalRotation: {x: .6613819, y: -.321861058, z: .366089642, w: .570050836}
+  m_LocalRotation: {x: .661381841, y: -.321861029, z: .366089612, w: .570050776}
   m_LocalPosition: {x: -.143454403, y: -.00868499838, z: -.0449427105}
   m_LocalScale: {x: 1, y: .99999994, z: .999999881}
   m_Children:
@@ -9929,6 +9930,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141978}
   m_Mesh: {fileID: 4300000, guid: 258d8fe23a2ac6e45a642dba5854cda8, type: 3}
+--- !u!54 &5418500
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133680}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!95 &9574350
 Animator:
   serializedVersion: 3
@@ -9954,7 +9970,7 @@ Animation:
   m_GameObject: {fileID: 133680}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400022, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
+  m_Animation: {fileID: 7400036, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
   m_Animations:
   - {fileID: 7400016, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
   - {fileID: 7400018, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}

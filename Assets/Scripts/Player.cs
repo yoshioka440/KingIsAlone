@@ -12,6 +12,10 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Shooter inside;		//手前
 
+	void Start () {
+		SelectShooter(0);
+	}
+
 	public Shooter SelectedShooter {
 		get { return selectedShooter; }
 	}
