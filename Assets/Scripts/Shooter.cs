@@ -26,7 +26,7 @@ public class Shooter : MonoBehaviour {
 	//tame_time:ため時間
 	//screen_vec:クリック座標
 	public void Shoot(float tame_time,Vector2 screen_vec){
-		Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z);
+		Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z-main_camera.gameObject.transform.position.z);
 
 		bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
 		Debug.Log (magazine.NowBullet (shooter_num).ToString ());
@@ -42,14 +42,14 @@ public class Shooter : MonoBehaviour {
 
 	//クリックされた座標から正規化した方向ベクトルを返す
 	Vector3 Calcu_vec(Vector2 screen_vec,float z){
-		Debug.Log(main_camera);
-		Vector3 direction = new Vector3(screen_vec.x, screen_vec.y, z);
+
+		Vector3 direction = new Vector3(screen_vec.x, screen_vec.y,z);
 		Vector3 v = main_camera.ScreenToWorldPoint (direction);
-		Debug.Log("screenVec:"+screen_vec+",v="+v);
 		//v.z = 0;
 
 		Vector3 shoot_v = new Vector3 ();
 		shoot_v = v - gameObject.transform.position;
+
 		shoot_v = Vector3.Normalize (shoot_v);
 
 		return shoot_v;
