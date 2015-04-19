@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	//[SerializeField]
 	public GameObject progressBar;
 	public GameObject enemySpawner;
+	//public Magazine magazine;
 
 	/**
 	 * （時間初期化（ProgressBar初期化））
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour {
 	 **/
 	// Use this for initialization
 	void Start () {
+
+
 
 		// EnemySpawnerの初期化
 //		enemySpawner.StartSpawn();
