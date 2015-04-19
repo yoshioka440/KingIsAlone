@@ -11,7 +11,7 @@ public class CastleHPBar : MonoBehaviour {
 	private GameObject castle;
 
 	void Awake () {
-		castle = GameObject.Find ("AllCastle");
+		//castle = GameObject.Find ("AllCastle");
 	}
 
 	// Use this for initialization

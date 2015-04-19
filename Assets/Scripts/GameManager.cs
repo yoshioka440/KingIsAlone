@@ -9,11 +9,8 @@ public class GameManager : MonoBehaviour {
 
 	public Castle castle;
 	public EnemySpawner enemySpawner;
-	//[SerializeField]
-//	public GameObject progressBar;
-//	public GameObject EnemySpawner;
+	public ProgressBar progressBar;
 
-//=======
 	/**
 	 * （時間初期化（ProgressBar初期化））
 	 * （ステージ初期化（掃除、生成））
@@ -26,15 +23,9 @@ public class GameManager : MonoBehaviour {
 
 		// 生活用品（弾倉）初期化
 
-		// EnemySpawnerの取得
-		//enemySpawner = enemySpawner.GetComponent<EnemySpawner> ();
-
 		// 終了条件、クリア条件の受け渡し
-//		gameover = castle.GetComponent<Castle> ().IsBroken;
-		//cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
-		//castle = GameObject.Find("AllCastle");
 		gameover = castle.IsBroken;
-//		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+		cleared = progressBar.IsEnd;
 	}
 
 	/**
@@ -53,7 +44,7 @@ public class GameManager : MonoBehaviour {
 	
 		// 終了条件、クリア条件の受け渡し
 		gameover = castle.IsBroken;
-//		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+		cleared = progressBar.IsEnd;
 
 	
 	}
@@ -67,7 +58,7 @@ public class GameManager : MonoBehaviour {
 
 
 		gameover = castle.IsBroken;
-		//cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+		cleared = progressBar.IsEnd;
 
 		// 終了判定
 		if (gameover) {
