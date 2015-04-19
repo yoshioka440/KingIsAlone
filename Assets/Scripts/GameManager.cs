@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour {
 	public GameObject castle;
 	//[SerializeField]
 	public GameObject progressBar;
-	public GameObject EnemySpawner;
+//<<<<<<< Updated upstream
+//	public GameObject EnemySpawner;
 
+//=======
+	public GameObject enemySpawner;
+//>>>>>>> Stashed changes
 	/**
 	 * （時間初期化（ProgressBar初期化））
 	 * （ステージ初期化（掃除、生成））
@@ -29,8 +33,14 @@ public class GameManager : MonoBehaviour {
 		//enemySpawner = enemySpawner.GetComponent<EnemySpawner> ();
 
 		// 終了条件、クリア条件の受け渡し
-		//gameover = castle.GetComponent<Castle> ().IsBroken;
+//<<<<<<< Updated upstream
+//		gameover = castle.GetComponent<Castle> ().IsBroken;
 		//cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+//=======
+		castle = GameObject.Find("AllCastle");
+		gameover = castle.GetComponent<Castle> ().IsBroken;
+		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+//>>>>>>> Stashed changes
 	}
 
 	/**
@@ -42,10 +52,16 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 
 		// EnemySpawnerの初期化
-		EnemySpawner.GetComponent<EnemySpawner>().StartSpawn();
+		enemySpawner.GetComponent<EnemySpawner>().StartSpawn();
 
 		// ResourceManagerの初期化
 		GetComponent<ResourceManager>().LoadPrefabs();
+	
+		// 終了条件、クリア条件の受け渡し
+		gameover = castle.GetComponent<Castle> ().IsBroken;
+		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+
+	
 	}
 
 	/**

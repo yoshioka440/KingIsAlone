@@ -30,11 +30,11 @@ public class EnemySpawner : MonoBehaviour {
 	void RegistPrefabs () {
 
 		ResourceManager mgr = resourceManager.GetComponent<ResourceManager>();
-		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy goblin");
-		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy MushroomRed");
+		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy MushroomBlue");
 		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy goblin");
-		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy goblin");
-		mgr.AddPrefab("ENEMY4", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy Necromancer");
+		mgr.AddPrefab("ENEMY4", "Prefabs/Enrmy CaveWorm");
 	}
 
 	IEnumerator SpawnEnemies () {

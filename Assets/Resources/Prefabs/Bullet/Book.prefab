@@ -104,7 +104,7 @@ MonoBehaviour:
   attack_power: 45
   block_power: 40
   is_ground: 0
-  destroy_wait_time: 0
+  destroy_wait_time: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
