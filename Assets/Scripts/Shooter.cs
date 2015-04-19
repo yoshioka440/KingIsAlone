@@ -42,9 +42,11 @@ public class Shooter : MonoBehaviour {
 
 	//クリックされた座標から正規化した方向ベクトルを返す
 	Vector3 Calcu_vec(Vector2 screen_vec,float z){
-		Debug.Log (main_camera);
-		Vector3 v = main_camera.ScreenToWorldPoint (screen_vec);
-		v.z = z;
+		Debug.Log(main_camera);
+		Vector3 direction = new Vector3(screen_vec.x, screen_vec.y, z);
+		Vector3 v = main_camera.ScreenToWorldPoint (direction);
+		Debug.Log("screenVec:"+screen_vec+",v="+v);
+		//v.z = 0;
 
 		Vector3 shoot_v = new Vector3 ();
 		shoot_v = v - gameObject.transform.position;
