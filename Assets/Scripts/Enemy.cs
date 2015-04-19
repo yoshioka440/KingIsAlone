@@ -27,11 +27,9 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "Bullet") {
 			Bullet bullet = col.gameObject.GetComponent<Bullet> ();
-
-			if (bullet.is_ground) {
-				hitPoint -= bullet.block_power;
-			} else {
-				hitPoint -= bullet.attack_power;
+			hitPoint -= bullet.Damage ();
+			if (hitPoint <= 0) {
+				Destroy (gameObject);
 			}
 		}
 	}
