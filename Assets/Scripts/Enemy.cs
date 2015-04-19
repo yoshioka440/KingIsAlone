@@ -4,20 +4,22 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 
 	int hitPoint = -1;
-	[SerializeField]float speed = 5f;
+	[SerializeField]
+	float speed = 5f;
 	Vector3 travelling = new Vector3();
 	bool move_flag = true;
 	Rigidbody rbody;
-	[SerializeField]float wait_time;
+	[SerializeField]
+	float interval;
 
 	// Use this for initialization
 	void Start () {
 		hitPoint = 100;
 		travelling = Vector3.left;
-		rbody = gameObject.GetComponent<Rigidbody> ();
-		StartCoroutine ("Move");
+		rbody = gameObject.GetComponent<Rigidbody>();
+		StartCoroutine("Move");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -25,11 +27,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "Bullet") {
-			Bullet bullet = col.gameObject.GetComponent<Bullet> ();
-			hitPoint -= bullet.Damage ();
-			if (hitPoint <= 0) {
-				Destroy (gameObject);
+		if(col.gameObject.tag == "Bullet") {
+			Bullet bullet = col.gameObject.GetComponent<Bullet>();
+			hitPoint -= bullet.Damage();
+			if(hitPoint <= 0) {
+				Destroy(gameObject);
 			}
 		}
 	}
@@ -39,11 +41,11 @@ public class Enemy : MonoBehaviour {
 		this.speed = speed;
 	}
 
-	IEnumerator Move(){
+	IEnumerator Move () {
 
-		while (move_flag) {
+		while(move_flag) {
 			rbody.velocity = travelling * speed;
-			yield return new WaitForSeconds (wait_time); 
+			yield return new WaitForSeconds(interval);
 		}
 	}
 }
