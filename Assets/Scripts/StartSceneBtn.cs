@@ -4,6 +4,6 @@ using System.Collections;
 public class StartSceneBtn : MonoBehaviour {
 
 	public void StartBtn(){
-		//Application.LoadLevel ();
+		Application.LoadLevel ("Release");
 	}
 }

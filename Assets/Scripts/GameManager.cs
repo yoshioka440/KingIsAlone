@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour {
 	void GameOver () {
 		Debug.Log("GameOver");
 		// ゲーム画面を止める、画面表示、シーンの遷移などなど
-
+		StopAllCoroutines();
+		Application.LoadLevel("Restart");
 	}
 		
 	// クリア処理
