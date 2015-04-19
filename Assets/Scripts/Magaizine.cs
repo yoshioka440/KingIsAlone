@@ -2,25 +2,23 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
-
-public class Magaizine {
+public class Magaizine: MonoBehaviour{
 
 	int initial_bullet;
 	BulletType[][] bullet_arrays;
 	int[] now_bullet_num;
 
-	public Magaizine(){
+	[SerializeField]ResourceManager rsmgr;
+
+	// Use this for initialization
+	void Awake () {
 
 		initial_bullet = 200;
 		bullet_arrays = new BulletType[3][];
-
+		
 		now_bullet_num = new int[3] {0,0,0};
-		Start();
-	}
-
-	// Use this for initialization
-	void Start () {
 
 		//大砲ごとのbullet
 		for(int i=0;i<3;i++){
@@ -28,6 +26,16 @@ public class Magaizine {
 
 			bullet_arrays[i] = MakeBulletsList(initial_bullet);
 		}
+
+		for (int i = 0; i < Enum.GetNames (typeof(BulletType)).Length; i++) {
+			string bullet_key, bullet_prefabs_path;
+			bullet_key = ((BulletType)i).ToString ();
+			Debug.Log (bullet_key);
+			bullet_prefabs_path = "Prefabs/Bullet/" + bullet_key;
+			rsmgr.AddPrefab (bullet_key, bullet_prefabs_path, false);
+
+		}
+		//StartCoroutine(rsmgr.LoadPrefabs ());
 	}
 
 	BulletType[] MakeBulletsList(int bullet_num){
@@ -37,6 +45,7 @@ public class Magaizine {
 		for (int i = 0; i < bullet.Length; i++) {
 
 			bullet [i] = (BulletType)random.Next (Enum.GetNames (typeof(BulletType)).Length);
+		
 		}
 		return bullet;
 	}
@@ -66,10 +75,13 @@ public class Magaizine {
 }
 
 public enum BulletType{
-	Desk,
 	Bed,
-	Can,
-	Spoon,
+	Book,
+	Statue,
+	Chair,
+	Planter,
+	Desk,
 	Fork,
-	Planter
+	Spoon,
+	Cup
 };
