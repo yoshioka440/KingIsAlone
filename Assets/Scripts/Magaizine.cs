@@ -30,7 +30,7 @@ public class Magaizine: MonoBehaviour{
 		for (int i = 0; i < Enum.GetNames (typeof(BulletType)).Length; i++) {
 			string bullet_key, bullet_prefabs_path;
 			bullet_key = ((BulletType)i).ToString ();
-			Debug.Log (bullet_key);
+			//Debug.Log (bullet_key);
 			bullet_prefabs_path = "Prefabs/Bullet/" + bullet_key;
 			rsmgr.AddPrefab (bullet_key, bullet_prefabs_path, false);
 

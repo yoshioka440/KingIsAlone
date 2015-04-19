@@ -1069,9 +1069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0351291a59b41eeae2db6c3bca958b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castle: {fileID: 1541498361}
-  progressBar: {fileID: 0}
-  EnemySpawner: {fileID: 1228120184}
+  castle: {fileID: 1541498362}
+  enemySpawner: {fileID: 1228120186}
 --- !u!4 &2091436903
 Transform:
   m_ObjectHideFlags: 0

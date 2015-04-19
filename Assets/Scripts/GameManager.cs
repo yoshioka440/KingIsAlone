@@ -7,16 +7,13 @@ public class GameManager : MonoBehaviour {
 	private bool gameover;
 	private bool cleared;
 
-	[SerializeField]
-	public GameObject castle;
+	public Castle castle;
+	public EnemySpawner enemySpawner;
 	//[SerializeField]
-	public GameObject progressBar;
-//<<<<<<< Updated upstream
+//	public GameObject progressBar;
 //	public GameObject EnemySpawner;
 
 //=======
-	public GameObject enemySpawner;
-//>>>>>>> Stashed changes
 	/**
 	 * （時間初期化（ProgressBar初期化））
 	 * （ステージ初期化（掃除、生成））
@@ -33,14 +30,11 @@ public class GameManager : MonoBehaviour {
 		//enemySpawner = enemySpawner.GetComponent<EnemySpawner> ();
 
 		// 終了条件、クリア条件の受け渡し
-//<<<<<<< Updated upstream
 //		gameover = castle.GetComponent<Castle> ().IsBroken;
 		//cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
-//=======
-		castle = GameObject.Find("AllCastle");
-		gameover = castle.GetComponent<Castle> ().IsBroken;
-		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
-//>>>>>>> Stashed changes
+		//castle = GameObject.Find("AllCastle");
+		gameover = castle.IsBroken;
+//		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
 	}
 
 	/**
@@ -52,14 +46,14 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 
 		// EnemySpawnerの初期化
-		enemySpawner.GetComponent<EnemySpawner>().StartSpawn();
+		enemySpawner.StartSpawn();
 
 		// ResourceManagerの初期化
 		GetComponent<ResourceManager>().LoadPrefabs();
 	
 		// 終了条件、クリア条件の受け渡し
-		gameover = castle.GetComponent<Castle> ().IsBroken;
-		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
+		gameover = castle.IsBroken;
+//		cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
 
 	
 	}
@@ -72,8 +66,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 
 
-
-		//gameover = castle.GetComponent<Castle> ().IsBroken;
+		gameover = castle.IsBroken;
 		//cleared = progressBar.GetComponent<ProgressBar> ().IsEnd;
 
 		// 終了判定
@@ -89,7 +82,7 @@ public class GameManager : MonoBehaviour {
 
 	// 終了処理
 	void GameOver () {
-
+		Debug.Log("GameOver");
 		// ゲーム画面を止める、画面表示、シーンの遷移などなど
 
 	}
