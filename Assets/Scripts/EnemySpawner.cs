@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour {
 	float startTime = 0;
 
 	[SerializeField]
-	Vector3 spawnPoint;
+	Transform spawnPoint;
 	[SerializeField]
 	GameObject resourceManager;
 
@@ -30,11 +30,11 @@ public class EnemySpawner : MonoBehaviour {
 	void RegistPrefabs () {
 
 		ResourceManager mgr = resourceManager.GetComponent<ResourceManager>();
-		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy goblin", true);
-		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy", true);
-		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy", true);
-		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy", true);
-		mgr.AddPrefab("ENEMY4", "Prefabs/Enemy", true);
+		mgr.AddPrefab("ENEMY0", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY1", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY2", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY3", "Prefabs/Enemy goblin");
+		mgr.AddPrefab("ENEMY4", "Prefabs/Enemy goblin");
 	}
 
 	IEnumerator SpawnEnemies () {
@@ -49,8 +49,8 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	GameObject InstantiateEnemy (EnemyInfo info) {
-		float zPos = -3f + info.Line * 3f;
-		Vector3 pos = new Vector3(spawnPoint.x, spawnPoint.y, zPos);
+		float zPos = -5f + info.Line * 5f;
+		Vector3 pos = new Vector3(spawnPoint.position.x, spawnPoint.position.y, zPos);
 		ResourceManager resource = resourceManager.GetComponent<ResourceManager>();
 		GameObject enemyObj = Instantiate(resource.GetPrefab(info.Kind), pos, Quaternion.identity) as GameObject;
 		Enemy enemy = enemyObj.GetComponent<Enemy>();
@@ -98,7 +98,7 @@ public class EnemySpawner : MonoBehaviour {
 
 			EnemyInfo info = new EnemyInfo(id, kind, row, spawnTime, HP, speed);
 			enemies.Add(info);
-			Debug.Log("ID:" + info.ID + ",Line:" + info.Line + ",Spawn:" + info.SpawnTime);
+			//Debug.Log("ID:" + info.ID + ",Line:" + info.Line + ",Spawn:" + info.SpawnTime);
 		}
 
 		return enemies;
