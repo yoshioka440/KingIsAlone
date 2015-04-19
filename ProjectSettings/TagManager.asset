@@ -8,6 +8,7 @@ TagManager:
   - Castle
   - Ground
   - Bullet
+  - AudioPlayer
   layers:
   - Default
   - TransparentFX

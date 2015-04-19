@@ -32,6 +32,7 @@ public class Shooter : MonoBehaviour {
 
 			bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
 			Debug.Log (magazine.NowBullet (shooter_num).ToString ());
+			AudioPlayer.Instance.PlaySE(2);
 			GameObject bullet = Instantiate (bullet_prefab,
 				                    gameObject.transform.position,
 									bullet_prefab.transform.rotation) as GameObject;

@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour {
 
 		// クリア判定
 		if (cleared) {
-
+			Clear();
 		}
 	}
 
@@ -81,7 +81,9 @@ public class GameManager : MonoBehaviour {
 		
 	// クリア処理
 	void Clear () {
-
+		Debug.Log("GameClear");
+		StopAllCoroutines();
+		Application.LoadLevel("GameClear");
 		// ゲーム画面を止める、画面表示、ファンファーレ、シーンの遷移など
 
 	}

@@ -39,6 +39,7 @@ public class Castle : MonoBehaviour {
 
 	IEnumerator Damaging(){
 		while (is_damaging) {
+			AudioPlayer.Instance.PlaySE(Random.Range(2, 4));
 			hitPoint--;
 			yield return new WaitForSeconds (damage_wait_time);
 		}

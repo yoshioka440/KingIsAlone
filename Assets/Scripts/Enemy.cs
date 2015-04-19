@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour {
 	void OnCollisionEnter (Collision col) {
 		if(col.gameObject.tag == "Bullet") {
 			Bullet bullet = col.gameObject.GetComponent<Bullet>();
+			AudioPlayer.Instance.PlaySE(4);
 			hitPoint -= bullet.Damage();
 			if(hitPoint <= 0) {
 				Destroy(gameObject);
