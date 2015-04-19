@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//hitPoint = 100;
+		hitPoint = 100;
 		travelling = Vector3.left;
 		rbody = gameObject.GetComponent<Rigidbody> ();
 		StartCoroutine ("Move");
@@ -25,9 +25,15 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
-		if(col.gameObject.tag != "Bullet") return;
+		if (col.gameObject.tag == "Bullet") {
+			Bullet bullet = col.gameObject.GetComponent<Bullet> ();
 
-		//hitPoint--;
+			if (bullet.is_ground) {
+				hitPoint -= bullet.block_power;
+			} else {
+				hitPoint -= bullet.attack_power;
+			}
+		}
 	}
 
 	public void Init (int hp, float speed) {

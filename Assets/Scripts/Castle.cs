@@ -18,8 +18,10 @@ public class Castle : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
-		Debug.Log(col.gameObject);
-		hitPoint--;
+		if (col.gameObject.tag == "Enemy") {
+			Debug.Log (col.gameObject);
+			hitPoint--;
+		}
 	}
 
 //	public bool IsBroken () {
