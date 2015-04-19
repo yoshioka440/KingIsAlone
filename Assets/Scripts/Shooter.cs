@@ -11,16 +11,17 @@ public class Shooter : MonoBehaviour {
 	GameObject bullet_prefab;
 	[SerializeField]float keisuu;
 	[SerializeField]ResourceManager rsmgr;
+	[SerializeField]GameObject playerpos;
 
 	// Use this for initialization
 	void Start () {
 		main_camera = Camera.main;
 	}
 
-	void Update(){
-		if(Input.GetKeyDown(KeyCode.Space))
-			Shoot(2,new Vector2(10,0));
-	}
+//	void Update(){
+//		if(Input.GetKeyDown(KeyCode.Space))
+//			Shoot(2,new Vector2(10,0));
+//	}
 
 	//tame_time:ため時間
 	//screen_vec:クリック座標
@@ -50,5 +51,9 @@ public class Shooter : MonoBehaviour {
 		shoot_v = Vector3.Normalize (shoot_v);
 
 		return shoot_v;
+	}
+
+	public Vector3 GetPlayerPosition(){
+		return playerpos.transform.position;
 	}
 }
