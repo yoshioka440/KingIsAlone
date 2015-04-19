@@ -344,7 +344,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 985578dd4bd244515a5c2bd3d482c35c, type: 3}
     m_FontSize: 95
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 65
@@ -593,3 +593,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104e6a957892647a184e7865875ead2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1894728151
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 267
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 236
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495800, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261922, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aefb43346add943258344357c34bf77c, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 48ec34e2fca7646c088171fd02066aeb, type: 2}
+  m_IsPrefabParent: 0
