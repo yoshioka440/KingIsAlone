@@ -20,20 +20,20 @@ public class InputArea : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 		if(!Input.anyKeyDown) return;
 		if(player == null) return;
 
-		if(Input.GetKeyDown(KeyCode.W)) {
-			//W(oku)
+		if(Input.GetKeyDown(KeyCode.A)) {
+			//A(oku)
 			player.SelectShooter(2);
-			Debug.Log("W");
+			Debug.Log("A");
 		}
 		else if(Input.GetKeyDown(KeyCode.S)) {
 			//S(center)
 			player.SelectShooter(1);
 			Debug.Log("S");
 		}
-		else if(Input.GetKeyDown(KeyCode.X)) {
-			//X(temae)
+		else if(Input.GetKeyDown(KeyCode.D)) {
+			//D(temae)
 			player.SelectShooter(0);
-			Debug.Log("X");
+			Debug.Log("D");
 		}
 	}
 
