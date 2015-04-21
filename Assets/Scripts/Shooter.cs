@@ -31,6 +31,11 @@ public class Shooter : MonoBehaviour {
 			Vector3 vec = Calcu_vec (screen_vec,gameObject.transform.position.z-main_camera.gameObject.transform.position.z);
 
 			bullet_prefab = rsmgr.GetPrefab (magazine.NowBullet (shooter_num).ToString ());
+			if(bullet_prefab == null) {
+				//error
+				Debug.Log("Error!!->NowBullet: " + magazine.NowBullet(shooter_num).ToString());
+				return;
+			}
 			Debug.Log (magazine.NowBullet (shooter_num).ToString ());
 			AudioPlayer.Instance.PlaySE(2);
 			GameObject bullet = Instantiate (bullet_prefab,

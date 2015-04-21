@@ -77,7 +77,7 @@ public class Magaizine: MonoBehaviour{
 public enum BulletType{
 	Bed,
 	Book,
-	Lion,
+	//Lion,
 	Chair,
 	Planter,
 	Desk,
