@@ -21,6 +21,9 @@ public class ProgressBar : MonoBehaviour {
 		isEnd = false;
 		startTime = Time.time;
 
+		//ゲームスタート
+		GameManager.Instance.StartGame();
+
 		currentProgress = startingProgress;
 	}
 	

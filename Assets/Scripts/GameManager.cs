@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 
 	private bool gameover;
@@ -19,13 +19,14 @@ public class GameManager : MonoBehaviour {
 	 * 敵の初期化
 	 * （プレイヤー初期化）
 	 **/
-	void Awake () {
+	// Use this for initialization
+	void Start () {
 
-		// 生活用品（弾倉）初期化
-
-		// 終了条件、クリア条件の受け渡し
-		gameover = castle.IsBroken;
-		cleared = progressBar.IsEnd;
+		gameover = false;
+		cleared = false;
+		// ResourceManagerの初期化
+		GetComponent<ResourceManager>().LoadPrefabs();
+	
 	}
 
 	/**
@@ -33,20 +34,9 @@ public class GameManager : MonoBehaviour {
 	 * 敵スタート
 	 * 時間スタート 
 	 **/
-	// Use this for initialization
-	void Start () {
-
-		// EnemySpawnerの初期化
+	public void StartGame () {
+		// EnemySpawnerがスポーン開始
 		enemySpawner.StartSpawn();
-
-		// ResourceManagerの初期化
-		GetComponent<ResourceManager>().LoadPrefabs();
-	
-		// 終了条件、クリア条件の受け渡し
-		gameover = castle.IsBroken;
-		cleared = progressBar.IsEnd;
-
-	
 	}
 
 	/**
