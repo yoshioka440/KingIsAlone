@@ -9,14 +9,6 @@ public class NextBoxUI : MonoBehaviour {
 	public GameObject nextBulletImage;
 	public GameObject nextnextBulletImage;
 
-	// 格納用オブジェクト
-	//public GameObject currentBullet;
-	public GameObject nextBullet;
-	public GameObject nextnextBullet;
-
-	// プレハブオブジェクト(テスト用)
-	public GameObject bulletPrefab;
-
 	// Magagine
 	public GameObject magazine;
 
@@ -39,6 +31,7 @@ public class NextBoxUI : MonoBehaviour {
 		if (nextnextBulletImage == null) nextnextBulletImage = GameObject.Find ("NextNextBulletImage");
 
 		if (magazine == null) magazine = GameObject.Find ("Magazine");
+		print (magazine.name);
 	}
 
 	// Use this for initialization
@@ -69,46 +62,72 @@ public class NextBoxUI : MonoBehaviour {
 	void ChangeImage () {
 
 		// Playerが選択中のShooter番号を取得する
-		selectedShooterNum = 0; // test
+		selectedShooterNum = 1; // test
 
 		/* ... */
 
 
+
+
 		// Shooter番号のMagazineを取得する
 		// bullet[]には、各弾（Bed, Book, ... spoon, ...）が入っている
+		bullet = new BulletType[3];
+//		print(magazine.name);
+//		print (magazine.GetComponent<Magaizine>());
+//		print (magazine.GetComponent<Magaizine>().NowBullet(1));
+//		print (magazine.GetComponent<Magaizine>().NowBullet(selectedShooterNum));
+//		print (bullet [0]);
 		bullet [0] = magazine.GetComponent<Magaizine> ().NowBullet(selectedShooterNum);
 		bullet [1] = magazine.GetComponent<Magaizine> ().NextBullet (selectedShooterNum);
 		bullet [2] = magazine.GetComponent<Magaizine> ().NextNextBullet (selectedShooterNum);
 
-		print ("bullet[0]: " + bullet[0]);
+//		print ("bullet[0]: " + bullet[0]);
+//		print ("sprite name: " + sprites[0].name);
+//
+		for (int i = 0; i < 3; i++) {
+			print(bullet [i].ToString());
+		}
 
-		// Spritesの初期化
-		//sprites[] = Resources.Load(/Sprites/)
-		//sprites[0] = Resources.Load("Sprite/Bed.png") as Sprite;
-
-		print ("sprite name: " + sprites[0].name);
+//		foreach (Sprite sprite in sprites) {
+//			print (sprite.name);
+//		}
 
 		// 初期化
-		bulletImage [0] = sprites [0];
-		bulletImage [1] = sprites [1];
-		bulletImage [2] = sprites [2];
+		bulletImage = new Sprite[3];
 
-		//currentBulletImage.GetComponent<Image> ().sprite = sprites[0];
-		foreach (int i in bullet) {
+		for (int i = 0; i < 3; i++) {
 			foreach (Sprite sprite in sprites) {
-				
-				// Magazineクラスから受け取ったbullet(BulletType型)と、sprite画像の名前を比較する
-				// 文字列を比較し、同じであれば格納する。
-				// （spoonはAssetの画像名が小文字なので、別に比較する）
-				if (bullet [i].ToString() == sprite.name) {
+//				if (bullet [i].ToString () == sprite.name) {
+//					print (bullet [i].ToString () + " == " + sprite.name);
+//				}
+
+				if (string.Compare (bullet [i].ToString (), sprite.name, true) == 0) {
+					print ("string.Compare, true: " + bullet [i].ToString () + ", " + sprite.name);
 					bulletImage [i] = sprite;
-				}
-				else if (bullet[i].ToString() == "Spoon" && sprites[i].name == "spoon.png") {
-					bulletImage [i] = sprite;	
 				}
 			}
 		}
 
+		for (int i = 0; i < 3; i++) {
+			print ("bulletImage[" + i + "].name: " + bulletImage[i].name);
+		}
+
+//		//currentBulletImage.GetComponent<Image> ().sprite = sprites[0];
+//		foreach (int i in bullet) {
+//			foreach (Sprite sprite in sprites) {
+//				
+//				// Magazineクラスから受け取ったbullet(BulletType型)と、sprite画像の名前を比較する
+//				// 文字列を比較し、同じであれば格納する。
+//				// （spoonはAssetの画像名が小文字なので、別に比較する）
+//				if (bullet [i].ToString() == sprite.name) {
+//					bulletImage [i] = sprite;
+//				}
+//				else if (bullet[i].ToString() == "Spoon" && sprites[i].name == "spoon.png") {
+//					bulletImage [i] = sprite;	
+//				}
+//			}
+//		}
+//
 		currentBulletImage.GetComponent<Image> ().sprite = bulletImage [0];
 		nextBulletImage.GetComponent<Image> ().sprite = bulletImage[1];
 		nextnextBulletImage.GetComponent<Image> ().sprite = bulletImage[2];

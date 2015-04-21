@@ -77,11 +77,11 @@ public class Magaizine: MonoBehaviour{
 public enum BulletType{
 	Bed,
 	Book,
-	Statue,
+	Lion,
 	Chair,
 	Planter,
 	Desk,
-	Folk,
+	Fork,
 	Spoon,
 	Cup
 };
