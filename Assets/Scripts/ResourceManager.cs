@@ -2,24 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ResourceManager : MonoBehaviour {
+public class ResourceManager : SingletonMonoBehaviour<ResourceManager> {
 
 	Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
 	Dictionary<string, string> resourcePaths = new Dictionary<string, string>();
 
 	List<string> prefabKeys = new List<string>();
 	List<string> reuseKeys = new List<string>();
-
-	static bool created = false;
-
-	protected void Awake () {
-		if(!created) {
-			//DontDestroyOnLoad(this.gameObject);
-			created = true;
-			return;
-		}
-		Destroy(this.gameObject);
-	}
 
 	public IEnumerator LoadPrefabs () {
 		string s = "OK";

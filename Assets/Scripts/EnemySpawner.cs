@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour {
 	GameObject resourceManager;
 
 	void Awake () {
+		resourceManager = ResourceManager.Instance.gameObject;
 		RegistPrefabs();
 	}
 
@@ -38,9 +39,10 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	IEnumerator SpawnEnemies () {
+		Debug.Log("Start spawn enemies");
 		for(int i = 0; i < enemiesInfo.Count; i++) {
 			next = enemiesInfo[i];
-			float t = Time.time;
+			float t = Time.time - startTime;
 			if(next.SpawnTime > t) {
 				yield return new WaitForSeconds(next.SpawnTime - t);
 				InstantiateEnemy(next);

@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		main_camera = Camera.main;
+		rsmgr = ResourceManager.Instance;
 	}
 
 	void Update(){

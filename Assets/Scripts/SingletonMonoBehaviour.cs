@@ -5,6 +5,7 @@ using System.Collections;
 public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T> {
 	protected static readonly string[] findTags = {
 													  "AudioPlayer",
+													  "GameController",
 												  };
 
 	protected static T instance;
