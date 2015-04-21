@@ -117,7 +117,7 @@ Transform:
   - {fileID: 1986227631}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &164885522 stripped
+--- !u!114 &164885522
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6,
     type: 2}
@@ -186,7 +186,7 @@ Prefab:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &173378161 stripped
+--- !u!4 &173378161
 Transform:
   m_PrefabParentObject: {fileID: 458798, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_PrefabInternal: {fileID: 173378160}
@@ -236,7 +236,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e14cbf3cfc7194d87b409a3b159be3e2, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &201489477 stripped
+--- !u!114 &201489477
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11478972, guid: e14cbf3cfc7194d87b409a3b159be3e2,
     type: 2}
@@ -388,7 +388,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!114 &722775061 stripped
+--- !u!114 &722775061
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6,
     type: 2}
@@ -457,7 +457,7 @@ Prefab:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &838987035 stripped
+--- !u!4 &838987035
 Transform:
   m_PrefabParentObject: {fileID: 458798, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_PrefabInternal: {fileID: 838987034}
@@ -559,7 +559,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 237154d97422744b09ef597ffb8ace91, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &856704555 stripped
+--- !u!224 &856704555
 RectTransform:
   m_PrefabParentObject: {fileID: 22403624, guid: 237154d97422744b09ef597ffb8ace91,
     type: 2}
@@ -648,7 +648,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1017633228 stripped
+--- !u!114 &1017633228
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11463410, guid: da15e7d981ca1be4f96591dcdb8734f6,
     type: 2}
@@ -712,7 +712,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1096472238 stripped
+--- !u!4 &1096472238
 Transform:
   m_PrefabParentObject: {fileID: 458798, guid: da15e7d981ca1be4f96591dcdb8734f6, type: 2}
   m_PrefabInternal: {fileID: 1096472237}
@@ -806,13 +806,13 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8382f71f9aab44b3884620e48e0721e, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1114369682 stripped
+--- !u!114 &1114369682
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11494684, guid: a8382f71f9aab44b3884620e48e0721e,
     type: 2}
   m_PrefabInternal: {fileID: 1114369681}
   m_Script: {fileID: 11500000, guid: 9042919ec49e24f5fa2b3983cab3afd5, type: 3}
---- !u!224 &1114369683 stripped
+--- !u!224 &1114369683
 RectTransform:
   m_PrefabParentObject: {fileID: 22418212, guid: a8382f71f9aab44b3884620e48e0721e,
     type: 2}
@@ -978,6 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ad771fd3c34b041b02b8e5eb20013d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultCanonColor: {r: .0627451017, g: .0627451017, b: .0627451017, a: 1}
+  selectedCanonColor: {r: .501960814, g: 0, b: 0, a: 1}
   outside: {fileID: 164885522}
   center: {fileID: 1017633228}
   inside: {fileID: 722775061}
@@ -1111,11 +1113,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90bda5a30777ed24abb3ef6a5dd40d3a, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1541498360 stripped
+--- !u!4 &1541498360
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 90bda5a30777ed24abb3ef6a5dd40d3a, type: 3}
   m_PrefabInternal: {fileID: 1541498359}
---- !u!1 &1541498361 stripped
+--- !u!1 &1541498361
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 90bda5a30777ed24abb3ef6a5dd40d3a, type: 3}
   m_PrefabInternal: {fileID: 1541498359}

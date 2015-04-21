@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	Shooter selectedShooter = null;
+	Shooter selectedShooter = null; //dummy
+	[SerializeField]
+	Color defaultCanonColor;
+	[SerializeField]
+	Color selectedCanonColor;
 
 	[SerializeField]
 	Shooter outside;	//奥
@@ -12,7 +16,7 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Shooter inside;		//手前
 
-	void Start () {
+	void Awake () {
 		SelectShooter(0);
 	}
 
@@ -21,18 +25,31 @@ public class Player : MonoBehaviour {
 	}
 
 	public Shooter SelectShooter (int num) {
+		if(selectedShooter == null) {
+			selectedShooter = center; //dummy
+		}
+
+		Material current = selectedShooter.transform.parent.gameObject.GetComponent<Renderer>().material;
+
 		switch(num) {
 			case 0:
+				current.color = defaultCanonColor;
 				selectedShooter = inside;
-				return selectedShooter;
+				break;
 			case 1:
+				current.color = defaultCanonColor;
 				selectedShooter = center;
-				return selectedShooter;
+				break;
 			case 2:
+				current.color = defaultCanonColor;
 				selectedShooter = outside;
-				return selectedShooter;
+				break;
 			default:
 				return null;
 		}
+
+		Material next = selectedShooter.transform.parent.gameObject.GetComponent<Renderer>().material;
+		next.color = selectedCanonColor;
+		return selectedShooter;
 	}
 }
