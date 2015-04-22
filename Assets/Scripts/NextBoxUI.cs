@@ -13,15 +13,19 @@ public class NextBoxUI : MonoBehaviour {
 	public GameObject magazine;
 
 	// プレイヤーからの受け取り用変数
+	public GameObject player;
 	private int selectedShooterNum;
+	private Shooter selectedShooter;
+
 	// Magazineからの取得用
 	private BulletType[] bullet;
 
-	// Sprites取得
+	// AssetsからSprites取得用
 	public Sprite[] sprites;
 
-	// 
 	private Sprite[] bulletImage;
+
+	public GameObject gameObject;
 
 	void Awake () {
 		
@@ -32,10 +36,13 @@ public class NextBoxUI : MonoBehaviour {
 
 		if (magazine == null) magazine = GameObject.Find ("Magazine");
 		print (magazine.name);
+
+		if (player == null) player = GameObject.Find ("Player");
 	}
 
 	// Use this for initialization
 	void Start () {
+
 
 		// 弾の画像変更
 		ChangeImage ();
@@ -63,10 +70,12 @@ public class NextBoxUI : MonoBehaviour {
 
 		// Playerが選択中のShooter番号を取得する
 		selectedShooterNum = 1; // test
+		print("player: " + player.name);
+		print("player.GetComponent<Player>(): " + player.GetComponent<Player> ());
+		print("SelectedShooter: " + player.GetComponent<Player> ().SelectedShooter);
+		selectedShooter = player.GetComponent<Player> ().SelectedShooter;
 
-		/* ... */
-
-
+		print (selectedShooter.name);
 
 
 		// Shooter番号のMagazineを取得する
