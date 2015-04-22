@@ -81,7 +81,7 @@ public enum BulletType{
 	Chair,
 	Planter,
 	Desk,
-	Folk,
+	Fork,
 	Spoon,
 	Cup
 };
